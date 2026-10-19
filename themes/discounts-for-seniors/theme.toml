@@ -1,0 +1,10 @@
+name = "Discounts for Seniors"
+license = "MIT"
+licenselink = "https://opensource.org/license/mit"
+description = "A warm, accessible Hugo theme for a Canadian senior discounts directory, inspired by the supplied design mockup."
+tags = ["directory", "senior", "deals", "blog", "responsive"]
+features = ["responsive", "accessible navigation", "search", "category cards", "deal cards", "article layouts"]
+min_version = "0.120.0"
+
+[author]
+  name = "Dark Haus Studio"

@@ -1,0 +1,13 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="{{ i18n "brand_home_aria" }}">
+      <img class="brand-logo" src="{{ "images/logo-mark.png" | relURL }}" alt="" width="42" height="42"><span class="brand-name">DISCOUNTS<small>FOR SENIORS</small></span>
+    </a>
+    <a class="button header-cta" href="{{ "directory/" | relLangURL }}">{{ i18n "cta_find" }} <span aria-hidden="true">→</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span><b class="sr-only">{{ i18n "toggle_nav" }}</b></button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+      <a href="{{ .Site.Home.RelPermalink }}">{{ i18n "nav_home" }}</a><a href="{{ "directory/" | relLangURL }}">{{ i18n "nav_directory" }}</a><a href="{{ "discounts/" | relLangURL }}">{{ i18n "nav_discounts" }}</a><a href="{{ "articles/" | relLangURL }}">{{ i18n "nav_articles" }}</a><a href="{{ "resources/" | relLangURL }}">{{ i18n "nav_resources" }}</a><a href="{{ "contact/" | relLangURL }}">{{ i18n "nav_contact" }}</a>
+    </nav>
+    <div class="lang-switch" aria-label="Language">{{ $cur := . }}{{ range .Site.Languages }}{{ $l := . }}{{ $href := "" }}{{ range $cur.AllTranslations }}{{ if eq .Language.Lang $l.Lang }}{{ $href = .RelPermalink }}{{ end }}{{ end }}{{ if not $href }}{{ range $cur.Site.Sites }}{{ if eq .Language.Lang $l.Lang }}{{ $href = .Home.RelPermalink }}{{ end }}{{ end }}{{ end }}<a href="{{ $href }}"{{ if eq $l.Lang $cur.Language.Lang }} class="active" aria-current="true"{{ end }}>{{ upper $l.Lang }}</a>{{ end }}</div>
+  </div>
+</header>

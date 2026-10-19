@@ -1,0 +1,85 @@
+{{ define "main" }}
+{{ $discounts := where .Site.RegularPages "Section" "discounts" }}
+<div class="article-layout wrap">
+  <article class="article-main">
+    <div class="article-hero" {{ with .Params.image }}style="background-image:url('{{ . }}')"{{ end }}>{{ with .Params.category }}<span class="hero-chip">{{ . }}</span>{{ end }}</div>
+    <h1 class="article-title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    <div class="article-meta">
+      {{ with .Date }}<span>📅 {{ . | time.Format ":date_long" }}</span>{{ end }}
+      <span>🕐 {{ .ReadingTime }} {{ i18n "min_read" }}</span>
+      {{ with .Params.category }}<span>🗂 {{ . }}</span>{{ end }}
+    </div>
+    {{ with .Params.answer }}<div class="answer-block"><p><strong>{{ i18n "short_answer" }}</strong> {{ . }}</p></div>{{ end }}
+    <div class="prose">{{ .Content }}</div>
+    {{ with .Params.faqs }}<section class="faq-section"><h2>{{ i18n "faq_heading" }}</h2>{{ range . }}<h3>{{ index . "q" }}</h3><p>{{ index . "a" }}</p>{{ end }}</section>{{ end }}
+    {{ if eq .Section "discounts" }}<p class="report-line">{{ i18n "report_a" }} <a href="mailto:hello@discountsforseniors.ca?subject={{ printf "%s: %s" (i18n "report_subject") .Title | urlquery }}">{{ i18n "report_link" }}</a> {{ i18n "report_b" }}</p>{{ end }}
+    {{ with .Params.signoff }}<p class="signoff">{{ . }} <span aria-hidden="true">♥</span></p>{{ end }}
+    {{ with .Params.website }}<a class="button" href="{{ . }}" target="_blank" rel="noopener">{{ i18n "visit_offer" }} <span>↗</span></a>{{ end }}
+  </article>
+  <aside class="sidebar">
+{{ if ne .Section "discounts" }}
+    {{ $shareURL := .Permalink }}{{ $shareText := printf "%s via %s" .Title .Site.Title }}
+    <section class="side-card share-card">
+      <h2>{{ if eq .Section "discounts" }}{{ i18n "share_deal" }}{{ else }}{{ i18n "share_article" }}{{ end }}</h2>
+      <div class="share-row">
+        <a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u={{ $shareURL | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Facebook">f</a>
+        <a class="share-btn pin" href="https://pinterest.com/pin/create/button/?url={{ $shareURL | urlquery }}&description={{ .Title | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Pinterest">p</a>
+        <a class="share-btn x" href="https://twitter.com/intent/tweet?url={{ $shareURL | urlquery }}&text={{ $shareText | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} X">𝕏</a>
+        <a class="share-btn mail" href="mailto:?subject={{ .Title | urlquery }}&body={{ $shareText | urlquery }}%0A{{ $shareURL | urlquery }}" aria-label="{{ i18n "share_email" }}">✉</a>
+      </div>
+    </section>
+{{ end }}
+    {{ if eq .Section "discounts" }}
+    <section class="side-card glance">
+      <h2>{{ i18n "glance" }}</h2>
+      <dl>
+        {{ with .Params.discount }}<div><dt>{{ i18n "glance_deal" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+        {{ with .Params.age }}<div><dt>{{ i18n "glance_who" }}</dt><dd>{{ i18n "ages" (dict "Age" .) }}</dd></div>{{ end }}
+        {{ with .Params.days }}<div><dt>{{ i18n "glance_when" }}</dt><dd>{{ delimit . ", " }}</dd></div>{{ end }}
+        {{ with .Params.provinces }}<div><dt>{{ i18n "glance_where" }}</dt><dd>{{ if in . "All" }}{{ i18n "all_canada" }}{{ else }}{{ delimit . ", " }}{{ end }}</dd></div>{{ end }}
+        {{ with .Params.retailer }}<div><dt>{{ i18n "glance_retailer" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+      </dl>
+      {{ with .Params.verified }}<p class="glance-verified">{{ . }}</p>{{ end }}
+    </section>
+    {{ $shareURL := .Permalink }}{{ $shareText := printf "%s via %s" .Title .Site.Title }}
+    <section class="side-card share-card">
+      <h2>{{ if eq .Section "discounts" }}{{ i18n "share_deal" }}{{ else }}{{ i18n "share_article" }}{{ end }}</h2>
+      <div class="share-row">
+        <a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u={{ $shareURL | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Facebook">f</a>
+        <a class="share-btn pin" href="https://pinterest.com/pin/create/button/?url={{ $shareURL | urlquery }}&description={{ .Title | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Pinterest">p</a>
+        <a class="share-btn x" href="https://twitter.com/intent/tweet?url={{ $shareURL | urlquery }}&text={{ $shareText | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} X">𝕏</a>
+        <a class="share-btn mail" href="mailto:?subject={{ .Title | urlquery }}&body={{ $shareText | urlquery }}%0A{{ $shareURL | urlquery }}" aria-label="{{ i18n "share_email" }}">✉</a>
+      </div>
+    </section>
+    {{ end }}
+    <section class="side-card">
+      <h2>{{ if eq .Section "discounts" }}{{ i18n "more_discounts" }}{{ else }}{{ i18n "related_articles" }}{{ end }}</h2>
+      {{ $related := where (where .Site.RegularPages "Section" .Section) "RelPermalink" "ne" .RelPermalink }}
+      {{ range first 3 $related }}<article class="blog-row small"><a class="blog-row-image" href="{{ .RelPermalink }}" style="background-image:url('{{ .Params.image }}')" aria-label="{{ .Title }}"></a><div class="blog-row-body"><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Date | time.Format ":date_long" }}</p></div></article>{{ else }}<p>{{ i18n "more_coming" }}</p>{{ end }}
+    </section>
+    <section class="side-card deals-box">
+      <h2>📍 {{ i18n "find_deals_h" }}</h2>
+      <p>{{ i18n "find_deals_p" }}</p>
+      <form class="side-deals-form">
+        <label class="sr-only" for="sd-prov">{{ i18n "province_word" }}</label>
+        <select id="sd-prov">{{ range slice "AB" "BC" "MB" "NB" "NL" "NS" "NT" "NU" "ON" "PE" "QC" "SK" "YT" }}<option value="{{ . }}">{{ i18n (printf "prov_%s" .) }}</option>{{ end }}</select>
+        <label class="sr-only" for="sd-cat">{{ i18n "category_word" }}</label>
+        <select id="sd-cat"><option value="">{{ i18n "all_categories" }}</option>{{ range .Site.Params.categories }}<option value="{{ .name }}">{{ .name }}</option>{{ end }}</select>
+        <button class="button" type="submit" data-dir="{{ "directory/" | relLangURL }}">{{ i18n "see_deals" }} <span>→</span></button>
+      </form>
+    </section>
+    <section class="side-card">
+      <h2>{{ i18n "popular_categories" }}</h2>
+      <ul class="side-cats">{{ range .Site.Params.categories }}<li><a href="{{ "directory/" | relURL }}?category={{ .name | urlquery }}"><span aria-hidden="true">{{ .icon }}</span> {{ .name }}</a></li>{{ end }}</ul>
+      <a class="text-link" href="{{ "directory/" | relLangURL }}">{{ i18n "view_all_categories" }} <span>→</span></a>
+    </section>
+    <section class="side-card">
+      <h2>{{ i18n "discount_days" }}</h2>
+      <ul class="days-list">
+      {{ range $wd := slice (i18n "day_monday") (i18n "day_tuesday") (i18n "day_wednesday") (i18n "day_thursday") (i18n "day_friday") (i18n "day_saturday") (i18n "day_sunday") }}{{ $hits := slice }}{{ range $discounts }}{{ if and (in .Params.days $wd) (eq (len .Params.days) 1) }}{{ $hits = $hits | append . }}{{ end }}{{ end }}{{ range $discounts }}{{ if and (in .Params.days $wd) (gt (len .Params.days) 1) }}{{ $hits = $hits | append . }}{{ end }}{{ end }}{{ if $hits }}<li><a href="{{ "directory/" | relLangURL }}?day={{ $wd }}"><b>{{ $wd }}</b><span>{{ (index $hits 0).Title }}{{ if gt (len $hits) 1 }} +{{ sub (len $hits) 1 }} {{ i18n "more_word" }}{{ end }}</span></a></li>{{ end }}{{ end }}
+      </ul>
+    </section>
+  </aside>
+</div>
+{{ end }}

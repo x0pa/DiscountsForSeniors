@@ -1,0 +1,39 @@
+{{ define "main" }}
+{{ $discounts := where .Site.RegularPages "Section" "discounts" }}
+{{ $articles := where .Site.RegularPages "Section" "articles" }}
+<section class="hero">
+  <div class="hero-copy"><p class="eyebrow">{{ i18n "hero_eyebrow" }}</p><h1>{{ i18n "hero_title" | safeHTML }}</h1><p>{{ i18n "hero_sub" }}</p><a class="button" href="{{ "directory/" | relLangURL }}">{{ i18n "hero_button" }} <span aria-hidden="true">→</span></a></div>
+  <div class="hero-photo" role="img" aria-label="{{ i18n "hero_photo_aria" }}"></div>
+</section>
+<section class="section category-section wrap"><div class="section-heading"><div><p class="eyebrow">{{ i18n "cat_eyebrow" }}</p><h2>{{ i18n "cat_heading" }}</h2></div><a class="text-link" href="{{ "directory/" | relLangURL }}">{{ i18n "view_all_discounts" }} <span>→</span></a></div>
+  <div class="category-grid">
+    {{ range .Site.Params.categories }}<a class="category-card {{ .tone }}" href="{{ "directory/" | relLangURL }}?category={{ .name | urlquery }}"><span class="category-icon" aria-hidden="true">{{ .icon }}</span><h3>{{ .name }}</h3><p>{{ .description }}</p><span class="card-link">{{ i18n "view_deals" }} <b>→</b></span></a>{{ end }}
+  </div>
+</section>
+<section class="wide-promo"><div class="promo-inner"><p class="script-heading">{{ i18n "promo_script" }}</p><h2>{{ i18n "promo_h2" }}</h2><p>{{ i18n "promo_p" }}</p><a class="button button-light" href="{{ "about/" | relLangURL }}">{{ i18n "promo_button" }} <span>→</span></a><div class="trust-points"><div><b>🍁</b><span>{{ i18n "trust_1" | safeHTML }}</span></div><div><b>♣</b><span>{{ i18n "trust_2" | safeHTML }}</span></div><div><b>♥</b><span>{{ i18n "trust_3" | safeHTML }}</span></div></div></div></section>
+<section class="section wrap"><div class="duo-grid">
+  <div class="duo-col">
+    <div class="section-heading"><div><p class="eyebrow">{{ i18n "duo_deals_eyebrow" }}</p><h2>{{ i18n "duo_deals_heading" }}</h2></div><a class="text-link" href="{{ "directory/" | relLangURL }}">{{ i18n "see_all_deals" }} <span>→</span></a></div>
+    {{ range first 3 (where $discounts "Params.featured" true) }}<article class="deal-row"><a class="deal-row-image" href="{{ .RelPermalink }}" style="background-image:url('{{ .Params.image }}')" aria-label="{{ .Title }}"></a><div class="deal-row-body"><span class="mini-label">{{ .Params.category }}</span><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Params.discount }}</p><a class="text-link" href="{{ .RelPermalink }}">{{ i18n "view_deal" }} <span>→</span></a></div></article>{{ end }}
+  </div>
+  <div class="duo-col">
+    <div class="section-heading"><div><p class="eyebrow">{{ i18n "duo_blog_eyebrow" }}</p><h2>{{ i18n "duo_blog_heading" }}</h2></div><a class="text-link" href="{{ "articles/" | relLangURL }}">{{ i18n "read_all_articles" }} <span>→</span></a></div>
+    {{ range first 3 $articles }}<article class="blog-row"><a class="blog-row-image" href="{{ .RelPermalink }}" style="background-image:url('{{ .Params.image }}')" aria-label="{{ .Title }}"></a><div class="blog-row-body"><p class="mini-label">{{ .Params.category }}</p><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Description }}</p></div></article>{{ end }}
+  </div>
+</div></section>
+<section class="near-you"><div class="wrap near-grid">
+  <div class="near-copy"><p class="eyebrow">{{ i18n "near_eyebrow" }}</p><h2>{{ i18n "near_h2" }}</h2><p>{{ i18n "near_p" }}</p>
+  <form class="near-form" id="near-form"><label class="sr-only" for="provincePick">{{ i18n "choose_province" }}</label><select id="provincePick">{{ range slice "AB" "BC" "MB" "NB" "NL" "NS" "NT" "NU" "ON" "PE" "QC" "SK" "YT" }}<option value="{{ . }}">{{ i18n (printf "prov_%s" .) }}</option>{{ end }}</select><button class="button" type="submit" data-dir="{{ "directory/" | relLangURL }}">{{ i18n "see_my_deals" }} <span>→</span></button></form></div>
+  <div class="cities-card"><h3>{{ i18n "popular_cities" }}</h3><ul>
+    {{ range slice "Toronto:ON" "Vancouver:BC" "Montreal:QC" "Calgary:AB" "Edmonton:AB" "Ottawa:ON" }}{{ $c := split . ":" }}<li><a href="{{ "directory/" | relLangURL }}?province={{ index $c 1 }}"><span>{{ i18n (printf "city_%s" (index $c 0)) }}</span><span class="city-prov">{{ index $c 1 }} {{ i18n "deals_word" }} →</span></a></li>{{ end }}
+  </ul></div>
+</div></section>
+<section class="section wrap"><div class="trio-grid">
+  <div class="trio-col"><h3>{{ i18n "trio_resources" }}</h3><ul class="resource-links">{{ range where .Site.RegularPages "Section" "resources" }}<li><a href="{{ .RelPermalink }}"><span aria-hidden="true">{{ .Params.icon }}</span> {{ .Title }}</a></li>{{ end }}</ul><a class="text-link" href="{{ "resources/" | relLangURL }}">{{ i18n "view_all_resources" }} <span>→</span></a></div>
+  <div class="trio-col"><h3>{{ i18n "trio_articles" }}</h3>{{ range first 3 $articles }}<article class="blog-row small"><a class="blog-row-image" href="{{ .RelPermalink }}" style="background-image:url('{{ .Params.image }}')" aria-label="{{ .Title }}"></a><div class="blog-row-body"><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Description | truncate 70 }}</p></div></article>{{ end }}</div>
+  <div class="trio-col"><h3>{{ i18n "trio_days" }}</h3><ul class="days-list">
+    {{ range $wd := slice (i18n "day_monday") (i18n "day_tuesday") (i18n "day_wednesday") (i18n "day_thursday") (i18n "day_friday") (i18n "day_saturday") (i18n "day_sunday") }}{{ $hits := slice }}{{ range $discounts }}{{ if and (in .Params.days $wd) (eq (len .Params.days) 1) }}{{ $hits = $hits | append . }}{{ end }}{{ end }}{{ range $discounts }}{{ if and (in .Params.days $wd) (gt (len .Params.days) 1) }}{{ $hits = $hits | append . }}{{ end }}{{ end }}{{ if $hits }}<li><a href="{{ "directory/" | relLangURL }}?day={{ $wd }}"><b>{{ $wd }}</b><span>{{ (index $hits 0).Title }}{{ if gt (len $hits) 1 }} +{{ sub (len $hits) 1 }} {{ i18n "more_word" }}{{ end }}</span></a></li>{{ end }}{{ end }}
+    <li><a href="{{ "directory/" | relLangURL }}"><b>{{ i18n "every_day" }}</b><span>{{ i18n "standing_rates" }}</span></a></li>
+  </ul></div>
+</div></section>
+{{ end }}

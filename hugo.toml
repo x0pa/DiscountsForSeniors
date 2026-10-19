@@ -1,0 +1,120 @@
+title = "Discounts for Seniors"
+baseURL = "https://discountsforseniors.ca/"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+relativeURLs = false
+theme = "discounts-for-seniors"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+[languages]
+  [languages.en]
+    languageCode = "en-CA"
+    languageName = "English"
+    weight = 1
+  [languages.fr]
+    languageCode = "fr-CA"
+    languageName = "Français"
+    weight = 2
+    title = "Discounts for Seniors"
+    [languages.fr.params]
+      description = "De vraies économies et des ressources utiles pour les aînés canadiens."
+      [[languages.fr.params.categories]]
+        name = "Voyages et hôtels"
+        description = "Escapades, circuits, croisières et plus."
+        icon = "▣"
+        tone = "gold"
+      [[languages.fr.params.categories]]
+        name = "Détail et magasinage"
+        description = "Vêtements, électronique, maison et plus."
+        icon = "◆"
+        tone = "peach"
+      [[languages.fr.params.categories]]
+        name = "Santé et bien-être"
+        description = "Pharmacies, forme physique, audition et vision."
+        icon = "♥"
+        tone = "rose"
+      [[languages.fr.params.categories]]
+        name = "Restaurants et divertissement"
+        description = "Restaurants, cafés, spectacles et événements."
+        icon = "♜"
+        tone = "green"
+      [[languages.fr.params.categories]]
+        name = "Services et finances"
+        description = "Banques, assurances, services juridiques et plus."
+        icon = "↗"
+        tone = "sage"
+      [[languages.fr.params.categories]]
+        name = "Événements et loisirs"
+        description = "Musées, parcs, attractions locales."
+        icon = "▧"
+        tone = "yellow"
+[pagination]
+  pagerSize = 9
+[params]
+  description = "Real savings and helpful resources for Canadian seniors."
+  [[params.categories]]
+    name = "Travel & Hotels"
+    description = "Getaways, tours, cruises and more."
+    icon = "▣"
+    tone = "gold"
+  [[params.categories]]
+    name = "Retail & Shopping"
+    description = "Clothing, electronics, home and more."
+    icon = "◆"
+    tone = "peach"
+  [[params.categories]]
+    name = "Health & Wellness"
+    description = "Pharmacies, fitness, hearing and vision."
+    icon = "♥"
+    tone = "rose"
+  [[params.categories]]
+    name = "Dining & Entertainment"
+    description = "Restaurants, cafes, shows and events."
+    icon = "♜"
+    tone = "green"
+  [[params.categories]]
+    name = "Services & Finance"
+    description = "Banking, insurance, legal and more."
+    icon = "↗"
+    tone = "sage"
+  [[params.categories]]
+    name = "Events & Leisure"
+    description = "Museums, parks, local attractions."
+    icon = "▧"
+    tone = "yellow"
+  [[params.featuredDeals]]
+    title = "Save on your next hotel stay"
+    type = "Travel"
+    description = "Discover senior rates at hotels across Canada."
+    image = "/images/deal-hotel.jpg"
+    url = "discounts/hotel-savings/"
+  [[params.featuredDeals]]
+    title = "Cruises worth looking into"
+    type = "Cruises"
+    description = "Explore relaxed ways to see more of the world."
+    image = "/images/deal-cruise.jpg"
+    url = "discounts/cruise-savings/"
+  [[params.featuredDeals]]
+    title = "Make more of local days out"
+    type = "Leisure"
+    description = "Find attractions and experiences close to home."
+    image = "/images/article-travel.jpg"
+    url = "discounts/local-attractions/"
+  [[params.featuredArticles]]
+    title = "10 Travel Tips for Canadian Seniors"
+    category = "Travel tips"
+    description = "Simple ways to make your next adventure more comfortable and affordable."
+    image = "/images/article-travel.jpg"
+    url = "articles/travel-tips/"
+  [[params.featuredArticles]]
+    title = "How to Save on Everyday Essentials"
+    category = "Money saving"
+    description = "Small changes that can make a difference to your monthly budget."
+    image = "/images/article-savings.jpg"
+    url = "articles/everyday-savings/"
+  [[params.featuredArticles]]
+    title = "Staying Active After 60"
+    category = "Wellness"
+    description = "Ideas for staying social, active and connected at every age."
+    image = "/images/article-active.jpg"
+    url = "articles/staying-active/"

@@ -1,0 +1,41 @@
+# Discounts for Seniors
+
+> Discounts for Seniors (discountsforseniors.ca) lists commercial senior discounts across Canada and verifies every one against the retailer's own published policy. Grocery discount days, pharmacy programmes, restaurant menus, retail offers, travel fares, telecom and bank pricing, and attraction admissions for Canadians aged 55, 60, and 65 and over. The site covers commercial discounts only and is published in English and Canadian French. It is independent and is not affiliated with any retailer listed.
+
+Key facts the site covers:
+
+- Every directory entry states who qualifies (the exact age threshold), what the discount is, which days it applies, and where it applies, with the retailer's own published policy as the source.
+- Discounts are grouped by the age they start: 55, 60, or 65, with a dedicated listing page for each age.
+- Well known examples: Shoppers Drug Mart gives 20% off regular priced items on Thursdays for shoppers 65 and over; VIA Rail sells 60 and over fares; BC Ferries carries a BC seniors fare on select sailings Monday to Thursday.
+- Some famous chains offer no senior discount at all, including Costco, Walmart, Starbucks, and Home Depot in Canada, and the site says so plainly.
+- A searchable directory filters all entries by age, province, category, and day of the week, including an "on today" view.
+
+## Start here
+
+- [The Discount Directory](https://discountsforseniors.ca/directory/): every verified entry, filterable by age, province, category, and day.
+- [Discounts for Seniors Over 55 in Canada](https://discountsforseniors.ca/discounts-for-seniors-over-55/): only the discounts that start at 55.
+- [Discounts for Seniors Over 60 in Canada](https://discountsforseniors.ca/discounts-for-seniors-over-60/): only the discounts that start at 60.
+- [Discounts for Seniors Over 65 in Canada](https://discountsforseniors.ca/discounts-for-seniors-over-65/): only the discounts that start at 65.
+- [How We Verify Every Discount](https://discountsforseniors.ca/how-we-verify/): the checking method behind every listing.
+
+## Flagship guides
+
+- [Shoppers Drug Mart Seniors Day: The Complete Guide](https://discountsforseniors.ca/articles/shoppers-seniors-day-guide/): how the Thursday 20% works, what is excluded, and how it stacks with PC Optimum.
+- [Does RONA Have a Senior Discount?](https://discountsforseniors.ca/articles/rona-senior-discount/): RONA's monthly 55 and over discount day and its terms.
+- [Do Rogers, Bell and Telus Offer Senior Discounts? The Honest Answer](https://discountsforseniors.ca/articles/rogers-bell-telus-senior-discounts/): the truthful answer on telecom pricing for seniors.
+- [4 Famous Stores With No Senior Discount in Canada](https://discountsforseniors.ca/articles/no-senior-discount/): Costco, Walmart, Starbucks, and Home Depot, checked and answered honestly.
+- [How to Ask for a Senior Discount](https://discountsforseniors.ca/articles/how-to-ask/): what to say, what ID to bring, and how to handle a no.
+
+## City guides
+
+- [Senior Discounts in Toronto](https://discountsforseniors.ca/articles/senior-discounts-toronto/)
+- [Senior Discounts in Vancouver](https://discountsforseniors.ca/articles/senior-discounts-vancouver/)
+- [Senior Discounts in Winnipeg](https://discountsforseniors.ca/articles/senior-discounts-winnipeg/)
+
+## In French
+
+The full site is published in Canadian French under https://discountsforseniors.ca/fr/, including the directory at https://discountsforseniors.ca/fr/directory/ and the age listings at https://discountsforseniors.ca/fr/discounts-for-seniors-over-55/, https://discountsforseniors.ca/fr/discounts-for-seniors-over-60/, and https://discountsforseniors.ca/fr/discounts-for-seniors-over-65/.
+
+## About the site
+
+Discounts for Seniors lists commercial discounts only. Government benefits, pensions, and tax credits are outside its scope. Entries are rechecked on a quarterly cycle, readers can report a changed discount from any entry page, and corrections are made when a retailer's published policy changes.
