@@ -118,3 +118,7 @@ defaultContentLanguageInSubdir = false
     description = "Ideas for staying social, active and connected at every age."
     image = "/images/article-active.jpg"
     url = "articles/staying-active/"
+
+[services]
+  [services.googleAnalytics]
+    ID = "G-6F9VQKN0CV"

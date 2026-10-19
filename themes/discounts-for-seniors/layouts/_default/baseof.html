@@ -19,6 +19,7 @@
   {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   {{ partial "seo-schema.html" . }}
+  {{ template "_internal/google_analytics.html" . }}
   {{ block "head" . }}{{ end }}
 </head>
 <body>
