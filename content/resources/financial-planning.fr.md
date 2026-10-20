@@ -15,4 +15,4 @@ Une seule journée de rabais change rarement un budget. Mais une journée hebdom
 
 ## Vos prestations gouvernementales
 
-Les pensions, les prestations et les crédits sont un sujet à part, et un sujet important. Service Canada publie les renseignements officiels sur le RPC, la SV, le SRG et les programmes provinciaux.
+Les pensions, les prestations et les crédits sont un sujet à part, et un sujet important. Service Canada publie les renseignements officiels sur le RPC, la SV, le SRG et les programmes provinciaux. Pour le même sujet expliqué pas à pas en langage simple, [EveryBenefit](https://everybenefit.ca/fr/posts/turning-65-checklist/) présente chaque prestation à régler à 65 ans, dans l'ordre où les faire. Gardez Service Canada comme source officielle; servez-vous du parcours pour savoir quoi chercher et quoi demander.

@@ -50,3 +50,5 @@ Home Depot Canada offre des prix pour entrepreneurs, des rabais de volume et des
 Chaque magasin de cette page a été vérifié comme nous vérifions tout : par rapport à la politique officielle publiée par le détaillant, publiquement. Les programmes changent, et si l'un de ces quatre lance un rabais pour aînés, cette page le dira et le répertoire l'affichera la même semaine.
 
 D'ici là : posez vos questions là où ça fonctionne. Le [répertoire](/fr/directory/) énumère les endroits qui ont déjà dit oui.
+
+Et là où aucun rabais n'existe, il vaut la peine de regarder du côté du revenu. L'argent que bien des aînés manquent vraiment n'est pas un rabais de magasin : c'est le Supplément de revenu garanti, qui peut valoir jusqu'à 1 138,90 $ par mois pour les aînés à faible revenu, et une bonne part des gens qui y ont droit ne le demandent jamais. EveryBenefit explique [le SRG en langage simple](https://everybenefit.ca/fr/posts/gis-explained/), y compris les seuils de revenu et la façon de faire la demande.

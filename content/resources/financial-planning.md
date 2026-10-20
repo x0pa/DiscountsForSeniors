@@ -15,4 +15,4 @@ One discount day rarely changes a budget. A weekly pharmacy day, a grocery senio
 
 ## Your government benefits
 
-Pensions, benefits and credits are a separate topic, and an important one. Service Canada publishes the official details on CPP, OAS, GIS and provincial programs.
+Pensions, benefits and credits are a separate topic, and an important one. Service Canada publishes the official details on CPP, OAS, GIS and provincial programs. For the same material walked through step by step in plain language, [EveryBenefit](https://everybenefit.ca/posts/turning-65-checklist/) lays out every benefit to sort out at 65, in the order to do them. Keep Service Canada as the official record; use the walkthrough to know what to look for and what to ask.

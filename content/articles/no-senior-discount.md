@@ -50,3 +50,5 @@ Home Depot Canada runs contractor pricing, volume discounts and periodic promoti
 Every store on this page was checked the way we check everything: against the retailer's own published policy, on the record. Programmes change, and if any of these four launches a senior discount, this page will say so and the directory will list it the same week.
 
 Until then: spend your asking where it works. The [directory](/directory/) lists the places that have already said yes.
+
+And where no discount exists, it is worth looking at the income side instead. The money many seniors actually miss is not a store discount at all: it is the Guaranteed Income Supplement, worth up to $1,138.90 a month for lower income seniors, and a large share of the people who qualify never apply for it. EveryBenefit explains [GIS in plain language](https://everybenefit.ca/posts/gis-explained/), including the income cutoffs and how to apply.
