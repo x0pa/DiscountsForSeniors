@@ -1,0 +1,9 @@
+{{- $entries := slice -}}
+{{- range where .Site.RegularPages "Section" "discounts" -}}
+{{- $entries = $entries | append (dict "url" .RelPermalink "title" .Title "retailer" (.Params.retailer | default "") "discount" (.Params.discount | default "") "category" (.Params.category | default "") "age" (.Params.age | default 0) "provinces" (.Params.provinces | default (slice)) "days" (.Params.days | default (slice)) "text" .Plain) -}}
+{{- end -}}
+{{- $articles := slice -}}
+{{- range where .Site.RegularPages "Section" "in" (slice "articles" "resources") -}}
+{{- $articles = $articles | append (dict "url" .RelPermalink "title" .Title) -}}
+{{- end -}}
+{{- dict "entries" $entries "articles" $articles | jsonify -}}

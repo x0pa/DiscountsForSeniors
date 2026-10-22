@@ -41,6 +41,14 @@
 .dir-field{display:flex;flex-direction:column;gap:6px}
 .dir-field label{font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#7a6a58}
 .dir-field select{padding:12px 14px;border:1px solid #d8c9a8;border-radius:10px;font:inherit;background:#fffdf8;min-width:170px}
+.dir-search-field{flex:1 1 100%}
+.dir-search-field input{padding:12px 14px;border:1px solid #d8c9a8;border-radius:10px;font:inherit;background:#fffdf8;width:100%}
+.dir-articles{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.dir-articles h3{margin:0 0 8px;font-size:19px}
+.dir-articles ul{margin:0;padding-left:18px}
+.dir-articles li{padding:3px 0}
+.dir-articles a{color:var(--rust);text-decoration:underline}
+@media print{.dir-articles{display:none}}
 .dir-check{display:flex;gap:8px;align-items:center;font-weight:700;padding-bottom:12px}
 .dir-check input{width:20px;height:20px;accent-color:var(--rust)}
 .dir-count{font-weight:700;color:#57493d;margin:22px 0 14px}

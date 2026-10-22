@@ -122,3 +122,13 @@ defaultContentLanguageInSubdir = false
 [services]
   [services.googleAnalytics]
     ID = "G-6F9VQKN0CV"
+
+[outputFormats]
+  [outputFormats.searchindex]
+    mediaType = "application/json"
+    baseName = "search-index"
+    isPlainText = true
+    notAlternative = true
+
+[outputs]
+  home = ["HTML", "RSS", "searchindex"]

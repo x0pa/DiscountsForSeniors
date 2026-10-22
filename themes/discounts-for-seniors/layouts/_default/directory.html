@@ -6,6 +6,7 @@
   <nav class="age-strip" aria-label="{{ i18n "browse_by_age" }}"><span>{{ i18n "browse_by_age" }}</span>{{ range slice 55 60 65 }}<a href="{{ printf "discounts-for-seniors-over-%d/" . | relLangURL }}">{{ i18n "over_word" }} {{ . }}</a>{{ end }}<a href="{{ "how-we-verify/" | relLangURL }}">{{ i18n "footer_how" }}</a></nav>
   <button type="button" class="dir-filter-toggle" id="dir-filter-toggle" aria-expanded="true" aria-controls="dir-tools" data-show="{{ i18n "filters_show" }}" data-hide="{{ i18n "filters_hide" }}"><span class="dft-label">{{ i18n "filters_hide" }}</span><span class="dft-chevron" aria-hidden="true">▾</span></button>
   <form class="dir-tools" id="dir-tools" aria-label="Directory filters">
+    <div class="dir-field dir-search-field"><label for="f-search">{{ i18n "f_search" }}</label><input type="search" id="f-search" placeholder="{{ i18n "search_placeholder" }}" autocomplete="off"></div>
     <div class="dir-field"><label for="f-age">{{ i18n "f_age" }}</label><select id="f-age"><option value="">{{ i18n "any_age" }}</option><option value="55">55+</option><option value="60">60+</option><option value="65">65+</option></select></div>
     <div class="dir-field"><label for="f-province">{{ i18n "f_province" }}</label><select id="f-province"><option value="">{{ i18n "all_of_canada" }}</option>{{ range slice "AB" "BC" "MB" "NB" "NL" "NS" "NT" "NU" "ON" "PE" "QC" "SK" "YT" }}<option value="{{ . }}">{{ i18n (printf "prov_%s" .) }}</option>{{ end }}</select></div>
     <div class="dir-field"><label for="f-category">{{ i18n "f_category" }}</label><select id="f-category"><option value="">{{ i18n "all_categories" }}</option>{{ range sort $cats }}<option value="{{ . }}">{{ . }}</option>{{ end }}</select></div>
@@ -16,7 +17,7 @@
   </form>
   <p class="dir-count" id="dir-count" role="status"></p>
   <h2 class="sr-only">{{ i18n "dir_results_h" }}</h2>
-  <div class="dir-grid" id="directory-grid" data-everyday="{{ i18n "every_day" }}" data-count-all="{{ i18n "count_all" }}" data-count-some="{{ i18n "count_some" }}">
+  <div class="dir-grid" id="directory-grid" data-everyday="{{ i18n "every_day" }}" data-count-all="{{ i18n "count_all" }}" data-count-some="{{ i18n "count_some" }}" data-search-index="{{ "search-index.json" | relLangURL }}">
   {{ range $pages }}
     <article class="dir-card" data-age="{{ .Params.age }}" data-provinces="{{ delimit .Params.provinces "," }}" data-days="{{ delimit .Params.days "," }}" data-category="{{ .Params.category }}">
       <a class="deal-image" href="{{ .RelPermalink }}" style="background-image:url('{{ .Params.image }}')" aria-label="{{ .Title }}"></a>
@@ -32,5 +33,6 @@
   {{ end }}
   </div>
   <p class="dir-empty" id="dir-empty" hidden>{{ i18n "dir_empty" }}</p>
+  <div class="dir-articles" id="dir-articles" hidden><h3>{{ i18n "search_articles_h" }}</h3><ul id="dir-articles-list"></ul></div>
 </section>
 {{ end }}
