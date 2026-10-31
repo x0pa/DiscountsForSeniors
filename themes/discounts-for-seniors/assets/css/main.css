@@ -129,3 +129,4 @@
 .side-card h2{margin:0 0 14px;font-size:17px}
 :focus-visible{outline:3px solid var(--rust-dark);outline-offset:2px}
 @media(max-width:760px){.trust-points{max-width:100%}.trust-points div{min-width:0;flex:1}}
+.share-btn.th{background:#000}

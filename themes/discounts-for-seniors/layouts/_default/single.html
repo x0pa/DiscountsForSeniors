@@ -19,14 +19,13 @@
   </article>
   <aside class="sidebar">
 {{ if ne .Section "discounts" }}
-    {{ $shareURL := .Permalink }}{{ $shareText := printf "%s via %s" .Title .Site.Title }}
-    <section class="side-card share-card">
-      <h2>{{ if eq .Section "discounts" }}{{ i18n "share_deal" }}{{ else }}{{ i18n "share_article" }}{{ end }}</h2>
+    {{ $shareURL := .Permalink }}{{ $shareText := printf "%s via %s" .Title .Site.Title }}{{ $encTitle := replace (.Title | urlquery) "+" "%20" }}{{ $encText := replace ($shareText | urlquery) "+" "%20" }}{{ $encThread := replace (printf "%s %s" .Title $shareURL | urlquery) "+" "%20" }}{{ $shareImg := (.Params.image | default "/images/og-card.jpg") | absURL }}{{ $fb := printf "https://www.facebook.com/sharer/sharer.php?u=%s" ($shareURL | urlquery) }}{{ $pin := printf "https://pinterest.com/pin/create/button/?url=%s&media=%s&description=%s" ($shareURL | urlquery) ($shareImg | urlquery) $encTitle }}{{ $x := printf "https://twitter.com/intent/tweet?url=%s&text=%s" ($shareURL | urlquery) $encText }}{{ $th := printf "https://www.threads.net/intent/post?text=%s" $encThread }}{{ $mail := printf "mailto:?subject=%s&body=%s%%0A%s" $encTitle $encText ($shareURL | urlquery) }}
       <div class="share-row">
-        <a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u={{ $shareURL | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Facebook">f</a>
-        <a class="share-btn pin" href="https://pinterest.com/pin/create/button/?url={{ $shareURL | urlquery }}&description={{ .Title | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Pinterest">p</a>
-        <a class="share-btn x" href="https://twitter.com/intent/tweet?url={{ $shareURL | urlquery }}&text={{ $shareText | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} X">𝕏</a>
-        <a class="share-btn mail" href="mailto:?subject={{ .Title | urlquery }}&body={{ $shareText | urlquery }}%0A{{ $shareURL | urlquery }}" aria-label="{{ i18n "share_email" }}">✉</a>
+        <a class="share-btn fb" href="{{ $fb | safeURL }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Facebook">f</a>
+        <a class="share-btn pin" href="{{ $pin | safeURL }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Pinterest">p</a>
+        <a class="share-btn x" href="{{ $x | safeURL }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} X">𝕏</a>
+        <a class="share-btn th" href="{{ $th | safeURL }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Threads">@</a>
+        <a class="share-btn mail" href="{{ $mail | safeURL }}" aria-label="{{ i18n "share_email" }}">✉</a>
       </div>
     </section>
 {{ end }}
@@ -42,14 +41,13 @@
       </dl>
       {{ with .Params.verified }}<p class="glance-verified">{{ . }}</p>{{ end }}
     </section>
-    {{ $shareURL := .Permalink }}{{ $shareText := printf "%s via %s" .Title .Site.Title }}
-    <section class="side-card share-card">
-      <h2>{{ if eq .Section "discounts" }}{{ i18n "share_deal" }}{{ else }}{{ i18n "share_article" }}{{ end }}</h2>
+    {{ $shareURL := .Permalink }}{{ $shareText := printf "%s via %s" .Title .Site.Title }}{{ $encTitle := replace (.Title | urlquery) "+" "%20" }}{{ $encText := replace ($shareText | urlquery) "+" "%20" }}{{ $encThread := replace (printf "%s %s" .Title $shareURL | urlquery) "+" "%20" }}{{ $shareImg := (.Params.image | default "/images/og-card.jpg") | absURL }}{{ $fb := printf "https://www.facebook.com/sharer/sharer.php?u=%s" ($shareURL | urlquery) }}{{ $pin := printf "https://pinterest.com/pin/create/button/?url=%s&media=%s&description=%s" ($shareURL | urlquery) ($shareImg | urlquery) $encTitle }}{{ $x := printf "https://twitter.com/intent/tweet?url=%s&text=%s" ($shareURL | urlquery) $encText }}{{ $th := printf "https://www.threads.net/intent/post?text=%s" $encThread }}{{ $mail := printf "mailto:?subject=%s&body=%s%%0A%s" $encTitle $encText ($shareURL | urlquery) }}
       <div class="share-row">
-        <a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u={{ $shareURL | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Facebook">f</a>
-        <a class="share-btn pin" href="https://pinterest.com/pin/create/button/?url={{ $shareURL | urlquery }}&description={{ .Title | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Pinterest">p</a>
-        <a class="share-btn x" href="https://twitter.com/intent/tweet?url={{ $shareURL | urlquery }}&text={{ $shareText | urlquery }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} X">𝕏</a>
-        <a class="share-btn mail" href="mailto:?subject={{ .Title | urlquery }}&body={{ $shareText | urlquery }}%0A{{ $shareURL | urlquery }}" aria-label="{{ i18n "share_email" }}">✉</a>
+        <a class="share-btn fb" href="{{ $fb | safeURL }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Facebook">f</a>
+        <a class="share-btn pin" href="{{ $pin | safeURL }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Pinterest">p</a>
+        <a class="share-btn x" href="{{ $x | safeURL }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} X">𝕏</a>
+        <a class="share-btn th" href="{{ $th | safeURL }}" target="_blank" rel="noopener" aria-label="{{ i18n "share_on" }} Threads">@</a>
+        <a class="share-btn mail" href="{{ $mail | safeURL }}" aria-label="{{ i18n "share_email" }}">✉</a>
       </div>
     </section>
     {{ end }}
